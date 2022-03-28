@@ -16,10 +16,17 @@ export const ButtonBase = styled.button`
   background-color: transparent;
   padding: ${(props) => props.p};
   margin: ${(props) => props.m};
-  color: ${(props) =>
-    props.variant === "containted"
-      ? "white"
-      : props.color};
+  color: ${(props) => {
+    const variant = props.variant;
+    switch (variant) {
+      case "containted":
+        return "white";
+      case "outlined":
+        return props.color ? props.color : props.theme.colors.primary;
+      default:
+        return props.color ? props.color : props.theme.colors.primary;
+    }
+  }};
   border: ${(props) =>
     props.variant === "outlined" ? `2px solid ${props.theme.colors.primary}` : 0};
   background: ${(props) => {
