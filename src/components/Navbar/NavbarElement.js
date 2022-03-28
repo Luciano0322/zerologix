@@ -24,9 +24,23 @@ export const NavItemsWapper = styled.div`
 `;
 
 export const LogoWrapper = styled.div`
+  margin; 0 1rem;
   display: flex;
   align-items: center;
-`
+`;
+
+export const OptionsWrapper = styled.ul`
+  display: none;
+  ${MEDIA_QUERY_LG} {
+    display: flex;
+    align-items: center;
+    li {
+      font-weight: 400;
+      font-size: .85rem;
+      list-style: none;
+    }
+  }
+`;
 
 export const BurgerWrapper = styled.label`
   display: flex;
@@ -37,7 +51,7 @@ export const BurgerWrapper = styled.label`
   z-index: 100;
   cursor: pointer;
   span {
-    background: black;
+    background: ${(props) => props.theme.colors.primary || "black"};
     border-radius: 10px;
     height: 6px;
     margin: 5px 0;

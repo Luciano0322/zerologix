@@ -1,9 +1,21 @@
 import PropTypes from "prop-types";
-import { ButtonBase } from "./ButtonElements";
+import { ButtonBase, ButtonLink } from "./ButtonElements";
 
 const Button = (props) => {
   return (
-    <ButtonBase
+    props.link ?
+    <ButtonLink
+      type={props.type}
+      color={props.color}
+      onClick={props.onClick}
+      variant={props.variant}
+      p={props.p}
+      m={props.m}
+      to={props.to}
+    >
+      {props.children}
+    </ButtonLink>
+    : <ButtonBase
       type={props.type}
       color={props.color}
       onClick={props.onClick}
@@ -19,7 +31,9 @@ const Button = (props) => {
 Button.propTypes = {
   type: PropTypes.string,
   onClick: PropTypes.func,
-  variant: PropTypes.string
+  variant: PropTypes.string,
+  link: PropTypes.bool,
+  to: PropTypes.string,
 };
 
 export default Button;
