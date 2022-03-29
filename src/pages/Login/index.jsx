@@ -3,17 +3,26 @@ import Button from "../../components/Button";
 import TextField from "../../components/TextField";
 import { LoginContainer, LoginField } from "./LoginElement";
 import { useForm, Controller } from "react-hook-form";
+import { useDispatch } from "react-redux";
+import { logIn } from "../../action/auth";
+import Dialog from "../../components/Dialog";
+import { useState } from "react";
 
 const Login = () => {
+  const dispatch = useDispatch()
+  const [dialog, setDialog] = useState({
+    open: false,
+    title: "",
+  })
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: '',
-      password: '',
+      email: 'yuntest@mailinator.com',
+      password: 'A123456',
     }
   })
   const sendLogin = (data) => {
     console.log(data);
-    
+    dispatch(logIn(data)).then(res => console.log(res))
   }
   return (
     <LoginContainer onSubmit={handleSubmit(sendLogin)}>
@@ -50,6 +59,7 @@ const Login = () => {
             submit
           </Button>
         </Box>
+        <Dialog open={dialog.open} title={dialog.title} />
       </LoginField>
     </LoginContainer>
   )
