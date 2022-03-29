@@ -4,15 +4,14 @@ import { MEDIA_QUERY_LG } from "../style";
 
 export const NavbarWrapper = styled.nav`
   position: fixed;
-  width: calc(100% - 2rem);
-  height: 3.5rem;
+  width: 100%;
   background: ${(props) => props.bgColor || '#ccc'};
   display: flex;
   align-items: center;
   justify-content: space-between;
   z-index: 10;
-  padding: 0.5rem 0rem;
-  margin: 0 1rem;
+  padding: .75rem;
+  box-shadow: 2px 0px 2px #cecece;
   ${(props) => props.variant === "left" && `flex-direction: row-reverse;`}
 `;
 
@@ -35,6 +34,7 @@ export const OptionsWrapper = styled.ul`
     display: flex;
     align-items: center;
     li {
+      margin: 0 .5rem;
       font-weight: 400;
       font-size: .85rem;
       list-style: none;

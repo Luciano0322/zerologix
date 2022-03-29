@@ -2,9 +2,12 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 import BurgerBtn from './BurgerBtn';
+import { useSelector } from 'react-redux';
 import { LogoWrapper, NavbarWrapper, NavItemsWapper, OptionsWrapper } from './NavbarElement';
 
 const Navbar = (props) => {
+  const auth = useSelector((state) => state.auth)
+  console.log(auth);
   const burgerChange = (e) => {
     if (e.target.checked) {
       props.sidebarOpen(true);

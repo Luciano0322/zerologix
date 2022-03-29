@@ -1,6 +1,6 @@
 import { LOGIN_FAIL, LOGIN_SUCCESS } from "../action/authType";
 
-const user = JSON.parse(localStorage.getItem("user"));
+const user = JSON.parse(localStorage.getItem("zeroLogixUser"));
 const initialState = user ? { isLoggedIn: true, user } : { isLoggedIn: false, user };
 const authReducer = (auth = initialState, action) => {
   const { type, payload } = action;

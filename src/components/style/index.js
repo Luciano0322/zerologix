@@ -1,3 +1,5 @@
+import { createGlobalStyle } from "styled-components"
+
 export const MEDIA_QUERY_LG = '@media screen and (min-width: 1366px)'
 export const theme = {
   colors: {
@@ -8,3 +10,9 @@ export const theme = {
     textSecondary: "#00000065",
   }
 }
+
+export const GlobalBorderbox = createGlobalStyle`
+  *, *::before, *::after {
+    box-sizing: border-box;
+  }
+`;
