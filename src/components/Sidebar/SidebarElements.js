@@ -6,7 +6,7 @@ export const SidebarContainer = styled.aside`
   width: 100%;
   height: 100%;
   background: ${(props) => props.bgColor || "transparent"};
-  backdrop-filter: blur(5px);
+  backdrop-filter: blur(20px);
   color: #fff;
   display: flex;
   flex-direction: column;
