@@ -1,5 +1,5 @@
 import AuthService from "../services/AuthService";
-import { LOGIN_FAIL, LOGIN_SUCCESS } from "./authType";
+import { LOGIN_FAIL, LOGIN_SUCCESS, LOGOUT } from "./authType";
 
 export const logIn = (loginData) => async (dispatch) => {
   try {
@@ -24,3 +24,9 @@ export const logIn = (loginData) => async (dispatch) => {
     return Promise.reject(err);
   }
 };
+
+export const logout = () => async (dispatch) => {
+  dispatch({
+    type: LOGOUT,
+  })
+}

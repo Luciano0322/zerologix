@@ -7,8 +7,10 @@ import { useDispatch } from "react-redux";
 import { logIn } from "../../action/auth";
 import Dialog from "../../components/Dialog";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
+  let navigate = useNavigate();
   const dispatch = useDispatch()
   const [dialog, setDialog] = useState({
     open: false,
@@ -22,7 +24,7 @@ const Login = () => {
   })
   const sendLogin = (data) => {
     console.log(data);
-    dispatch(logIn(data)).then(res => console.log(res))
+    dispatch(logIn(data)).then(res => res.token && res.user && alert('登入成功')).then(() => navigate('/'))
   }
   return (
     <LoginContainer onSubmit={handleSubmit(sendLogin)}>
@@ -59,8 +61,8 @@ const Login = () => {
             submit
           </Button>
         </Box>
-        <Dialog open={dialog.open} title={dialog.title} />
       </LoginField>
+
     </LoginContainer>
   )
 };

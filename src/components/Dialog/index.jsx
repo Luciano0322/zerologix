@@ -1,16 +1,28 @@
 import PropTypes from "prop-types";
+import Button from "../Button";
 
 const Dialog = (props) => {
+  const handleClose = () => {
+    
+    props.changeFn({open: false, title: "" })
+  }
   return (
-    <dialog open={props.open}>
-      <h3>{props.title}</h3>
+    <dialog open={props.data?.open}>
+      <h3>{props.data?.title}</h3>
+      <Button
+        variant="containted"
+        p={`.75rem`}
+        onClick={handleClose}
+      >
+        關閉
+      </Button>
     </dialog>
   );
 };
 
 Dialog.propTypes = {
-  title: PropTypes.string,
-  open: PropTypes.bool,
+  data: PropTypes.object,
+  changeFn: PropTypes.func,
 };
 
 

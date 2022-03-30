@@ -2,12 +2,14 @@ import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom';
 import Button from '../Button';
 import BurgerBtn from './BurgerBtn';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { LogoWrapper, NavbarWrapper, NavItemsWapper, OptionsWrapper } from './NavbarElement';
+import { logout } from '../../action/auth';
 
 const Navbar = (props) => {
-  const auth = useSelector((state) => state.auth)
-  console.log(auth);
+  const { isLoggedIn } = useSelector((state) => state.auth)
+  const dispatch = useDispatch()
+  // console.log(user);
   const burgerChange = (e) => {
     if (e.target.checked) {
       props.sidebarOpen(true);
@@ -15,6 +17,10 @@ const Navbar = (props) => {
       props.sidebarOpen(false);
     }
   };
+
+  const handleLogout = () => {
+    dispatch(logout()).then(() => alert('成功登出'))
+  }
 
   return (
     <header>
@@ -28,10 +34,18 @@ const Navbar = (props) => {
               {props.children}  
             </OptionsWrapper>
           </LogoWrapper>
-          <Button variant='outlined' p={`.5rem 1rem`} link to={`/login`}>
-            Login
-          </Button>
+          {isLoggedIn && 
+            <Button variant='outlined' p={`.5rem 1rem`} onClick={handleLogout}>
+              Logout
+            </Button>
+          }
+          <div style={isLoggedIn ? {display: 'none'} : {}}>
+            <Button variant='outlined' p={`.5rem 1rem`} link to={`/login`}>
+              Login
+            </Button>
+          </div>
         </NavItemsWapper>
+        
         <BurgerBtn onChange={burgerChange} checked={props.opened} />
       </NavbarWrapper>
     </header>
