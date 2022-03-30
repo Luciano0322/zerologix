@@ -26,7 +26,15 @@ export const logIn = (loginData) => async (dispatch) => {
 };
 
 export const logout = () => async (dispatch) => {
-  dispatch({
-    type: LOGOUT,
-  })
+  try {
+    const res = await AuthService.logout()
+    dispatch({
+      type: LOGOUT,
+      payload: res.data
+    })
+    return Promise.resolve(res.data)
+  } catch (err) {
+    console.log(err);
+    return Promise.reject(err)
+  }
 }

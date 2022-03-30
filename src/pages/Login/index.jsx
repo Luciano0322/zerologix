@@ -24,7 +24,10 @@ const Login = () => {
   })
   const sendLogin = (data) => {
     console.log(data);
-    dispatch(logIn(data)).then(res => res.token && res.user && alert('登入成功')).then(() => navigate('/'))
+    dispatch(logIn(data))
+    .then(res => res.token && res.user && alert('登入成功'))
+    .then(() => navigate('/'))
+    .then(() => navigate(0))
   }
   return (
     <LoginContainer onSubmit={handleSubmit(sendLogin)}>
