@@ -34,7 +34,14 @@ const VideoPart = () => {
       <Box
         width={`min(90%, 540px)`}
       >
-        <iframe width="540" height="315" src="https://www.youtube.com/embed/fnqETTXexGM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe 
+          width="540" 
+          height="315" 
+          src="https://www.youtube.com/embed/fnqETTXexGM" 
+          title="YouTube video player" 
+          frameborder="0" 
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+          allowfullscreen></iframe>
       </Box>
     </Box>
   )

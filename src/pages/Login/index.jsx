@@ -12,14 +12,15 @@ import { useNavigate } from "react-router-dom";
 const Login = () => {
   let navigate = useNavigate();
   const dispatch = useDispatch()
+  // need popup wireframe and deal with feedback msg
   const [dialog, setDialog] = useState({
     open: false,
     title: "",
   })
   const { control, handleSubmit } = useForm({
     defaultValues: {
-      email: 'yuntest@mailinator.com',
-      password: 'A123456',
+      email: '',
+      password: '',
     }
   })
   const sendLogin = (data) => {
