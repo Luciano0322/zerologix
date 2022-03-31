@@ -9,6 +9,7 @@ import { format } from 'date-fns';
 import Select from "../../components/Select";
 import TextField from "../../components/TextField";
 import { useForm, Controller } from "react-hook-form";
+import VideoPart from "./VideoPart";
 
 const Home = () => {
   const { isLoggedIn } = useSelector((state) => state.auth)
@@ -97,7 +98,7 @@ const Home = () => {
           ))}
         </PostsWrapper>
       </Box>
-      
+      <VideoPart/>
       <Box 
         id="register"
         display="flex"
@@ -107,7 +108,7 @@ const Home = () => {
         m={`2rem 0`}
       >
         <RegisterForm >
-          <h2>Register for a Webinar now</h2>
+          <h3>Register for a Webinar now</h3>
           <p>Please fill in the form below and you will be contacted by one of our professional business experts.</p>
           <Controller
             control={control}

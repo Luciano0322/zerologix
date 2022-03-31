@@ -67,7 +67,7 @@ export const RegisterForm = styled.form`
   box-shadow: 2px 2px 8px #ccc;
   background-color: white;
   padding: 1.25rem;
-  h2 {
+  h3 {
     text-align: center;
     color: ${(props) => props.theme.colors.primary};
   }
@@ -78,4 +78,12 @@ export const RegisterForm = styled.form`
   ${MEDIA_QUERY_LG} {
     padding: 1.5rem 20ch;
   }
+`;
+
+export const VideoTitle = styled.h3`
+  color: ${(props) => props.theme.colors.primary};
+`;
+
+export const VideoContent = styled.p`
+  color: ${(props) => props.theme.colors.textSecondary};
 `;
