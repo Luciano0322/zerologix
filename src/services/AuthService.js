@@ -5,8 +5,8 @@ const login = (loginData) => {
   return LogixDataV1.post(`/auth/email/login`, loginData)
 };
 
-const logout = () => {
-  return LogixV1WithToken.post(`/auth/logout`)
+const logout = (token) => {
+  return LogixV1WithToken(token).post(`/auth/logout`)
 }
 
 const AuthService = {

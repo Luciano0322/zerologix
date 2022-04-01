@@ -25,9 +25,9 @@ export const logIn = (loginData) => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch) => {
+export const logout = (token) => async (dispatch) => {
   try {
-    const res = await AuthService.logout()
+    const res = await AuthService.logout(token)
     dispatch({
       type: LOGOUT,
       payload: res.data

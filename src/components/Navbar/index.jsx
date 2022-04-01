@@ -7,7 +7,7 @@ import { LogoWrapper, NavbarWrapper, NavItemsWapper, OptionsWrapper } from './Na
 import { logout } from '../../action/auth';
 
 const Navbar = (props) => {
-  const { isLoggedIn } = useSelector((state) => state.auth)
+  const { isLoggedIn, user } = useSelector((state) => state.auth)
   const dispatch = useDispatch()
   // console.log(user);
   const burgerChange = (e) => {
@@ -19,7 +19,7 @@ const Navbar = (props) => {
   };
 
   const handleLogout = () => {
-    dispatch(logout()).then(() => alert('成功登出'))
+    dispatch(logout(user.token)).then(() => alert('成功登出'))
   }
 
   return (

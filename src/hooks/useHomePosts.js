@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch } from "react-redux"
-import { retrievePosts } from "../../action/Home"
+import { retrievePosts } from "../action/Home"
 
 const useHomePosts = (url) => {
   const dispatch = useDispatch()
