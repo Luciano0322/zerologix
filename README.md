@@ -1,6 +1,7 @@
-## There's noting over design. Your developer never try to used storybook lib befroe?
+## There's noting over design. Your developer never try to use storybook lib befroe?
 - I just made my solution with problem that you provide. Then you could not accept that solution which made by myself, and the reason just my solution more better than your thinks?
 - Really bad culture in this company. They will using their subjective opinion to judge the others developer who has different way thinking their project.
+- 
 
 # Getting Started with Create React App
 
